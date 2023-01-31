@@ -1,4 +1,5 @@
 /* -------------------------------------------CREATE FIRST SERVER */
+
 //const http = require('http');
 
 
@@ -24,6 +25,12 @@
 // console.log(area(5));
 // console.log(circumference(5));
 
-const Circle = require('./circle');
-const circle = new Circle();
-console.log(circle.area(5));
+// const Circle = require('./circle');
+// const circle = new Circle();
+// console.log(circle.area(5));
+
+
+/* --------------------------------- what are global objects */
+
+// console.log(__dirname); this wont work with global because it appears to be global obj but is not
+//check documentation to see more of this
