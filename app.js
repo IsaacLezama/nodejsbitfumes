@@ -34,3 +34,23 @@
 
 // console.log(__dirname); this wont work with global because it appears to be global obj but is not
 //check documentation to see more of this
+
+
+/* --------------------------------------- creating packag.json file */
+
+const http = require('http');
+
+const PORT = 3000;
+const server = http.createServer((req, res) => {
+    // res.write("hello node");
+    // res.end();
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(
+        JSON.stringify({
+            data: "hello world!"
+        })
+    );
+});
+
+server.listen(PORT);
