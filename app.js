@@ -92,29 +92,67 @@
 
 /* --------------------------------------- show html content */
 
+// const http = require('http');
+
+// const PORT = 3000;
+// const server = http.createServer((req, res) => {
+
+//     if(req.url === '/') {
+//         res.writeHead(200, { "Content-Type": "text/html" });
+//         res.write("pages/home.html");
+//         res.end();
+//     } else if(req.url === '/about') {
+//         res.writeHead(200, { "Content-Type": "text/html" });
+//         res.write("<h1>welcome to about page</h1>");
+//         res.end(
+            
+//         );
+//     } else {
+//         res.writeHead(404, { "Content-Type": "text/html" });
+//         res.write("<h1>page not found</h1>");
+//         res.end(
+            
+//         );
+//     }
+
+
+// });
+
+// server.listen(PORT);
+
+
+/* ------------------------------------- file system module readfile */
+
 const http = require('http');
+const fs = require('fs');
 
 const PORT = 3000;
 const server = http.createServer((req, res) => {
 
     if(req.url === '/') {
         res.writeHead(200, { "Content-Type": "text/html" });
-        res.write("pages/home.html");
-        res.end();
+        fs.readFile("pages/home.html", "utf8", (err, data) => {
+            if (err) throw err;
+            res.write(data);
+            res.end();
+        });
     } else if(req.url === '/about') {
         res.writeHead(200, { "Content-Type": "text/html" });
-        res.write("<h1>welcome to about page</h1>");
-        res.end(
-            
-        );
+        fs.readFile("pages/about.html", "utf8", (err, data) => {
+            if (err) throw err;
+            res.write(data);
+            res.end();
+        });
     } else {
         res.writeHead(404, { "Content-Type": "text/html" });
-        res.write("<h1>page not found</h1>");
-        res.end(
-            
-        );
+        fs.readFile("pages/404.html", "utf8", (err, data) => {
+            if (err) throw err;
+            res.write(data);
+            res.end();
+        });
     }
 
+    // res.end();
 
 });
 
