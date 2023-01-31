@@ -205,15 +205,15 @@
 
 /* --------------------------------------- event loop explained */
 
-const func1 = () => console.log("func1");
-const func2 = () => console.log("func2");
-const func3 = () => {
-    console.log("func3");
-    setTimeout = (func1, 0);
-    new Promise((resolve, reject) => {
-        resolve('i am promise');
-    }).then((res) => console.log(res));
-    func2();
-}
-func3();
-console.log("finished");
+// const func1 = () => console.log("func1");
+// const func2 = () => console.log("func2");
+// const func3 = () => {
+//     console.log("func3");
+//     setTimeout = (func1, 0);
+//     new Promise((resolve, reject) => {
+//         resolve('i am promise');
+//     }).then((res) => console.log(res));
+//     func2();
+// }
+// func3();
+// console.log("finished");
