@@ -123,37 +123,81 @@
 
 /* ------------------------------------- file system module readfile */
 
-const http = require('http');
-const fs = require('fs');
+// const http = require('http');
+// const fs = require('fs');
 
-const PORT = 3000;
-const server = http.createServer((req, res) => {
+// const PORT = 3000;
+// const server = http.createServer((req, res) => {
 
-    if(req.url === '/') {
-        res.writeHead(200, { "Content-Type": "text/html" });
-        fs.readFile("pages/home.html", "utf8", (err, data) => {
-            if (err) throw err;
-            res.write(data);
-            res.end();
-        });
-    } else if(req.url === '/about') {
-        res.writeHead(200, { "Content-Type": "text/html" });
-        fs.readFile("pages/about.html", "utf8", (err, data) => {
-            if (err) throw err;
-            res.write(data);
-            res.end();
-        });
-    } else {
-        res.writeHead(404, { "Content-Type": "text/html" });
-        fs.readFile("pages/404.html", "utf8", (err, data) => {
-            if (err) throw err;
-            res.write(data);
-            res.end();
-        });
-    }
+//     if(req.url === '/') {
+//         res.writeHead(200, { "Content-Type": "text/html" });
+//         fs.readFile("pages/home.html", "utf8", (err, data) => {
+//             if (err) throw err;
+//             res.write(data);
+//             res.end();
+//         });
+//     } else if(req.url === '/about') {
+//         res.writeHead(200, { "Content-Type": "text/html" });
+//         fs.readFile("pages/about.html", "utf8", (err, data) => {
+//             if (err) throw err;
+//             res.write(data);
+//             res.end();
+//         });
+//     } else {
+//         res.writeHead(404, { "Content-Type": "text/html" });
+//         fs.readFile("pages/404.html", "utf8", (err, data) => {
+//             if (err) throw err;
+//             res.write(data);
+//             res.end();
+//         });
+//     }
 
-    // res.end();
+// res.end();
 
-});
+// });
 
-server.listen(PORT);
+// server.listen(PORT);
+
+/* ------------------------------------------ fs write large file */
+
+// const http = require('http');
+// const fs = require('fs');
+
+// const PORT = 3000;
+// const server = http.createServer((req, res) => {
+
+//     if(req.url === '/') {
+//         res.writeHead(200, { "Content-Type": "text/html" });
+//         fs.readFile("pages/home.html", "utf8", (err, data) => {
+//             if (err) throw err;
+//             res.write(data);
+//             res.end();
+//         });
+//     } else if(req.url === '/about') {
+//         res.writeHead(200, { "Content-Type": "text/html" });
+//         fs.readFile("pages/about.html", "utf8", (err, data) => {
+//             if (err) throw err;
+//             res.write(data);
+//             res.end();
+//         });
+//     } else if(req.url === '/create-file') {
+//         for(let i = 0; i < 10000; i++) {
+//             res.writeHead(200, { "Content-Type": "text/html" });
+//             fs.appendFile("temp/test.html", "<h1>this is test file</h1>", (err) => {
+//                 if (err) throw err;
+//             });
+//         }
+//         res.write('File is created');
+//         res.end();
+//     }else {
+//         res.writeHead(404, { "Content-Type": "text/html" });
+//         fs.readFile("pages/404.html", "utf8", (err, data) => {
+//             if (err) throw err;
+//             res.write(data);
+//             res.end();
+//         });
+//     }
+
+// });
+
+// server.listen(PORT);
