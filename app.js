@@ -57,31 +57,61 @@
 
 /* ------------------------------ handling http routes */
 
+// const http = require('http');
+
+// const PORT = 3000;
+// const server = http.createServer((req, res) => {
+
+//     if(req.url === '/') {
+//         res.writeHead(200, { "Content-Type": "application/json" });
+//         res.end(
+//             JSON.stringify({
+//                 data: "hello world!"
+//             })
+//         );
+//     } else if(req.url === '/about') {
+//         res.writeHead(200, { "Content-Type": "application/json" });
+//         res.end(
+//             JSON.stringify({
+//                 data: "this is about page!"
+//             })
+//         );
+//     } else {
+//         res.writeHead(404, { "Content-Type": "application/json" });
+//         res.end(
+//             JSON.stringify({
+//                 data: "page not found!"
+//             })
+//         );
+//     }
+
+
+// });
+
+// server.listen(PORT);
+
+/* --------------------------------------- show html content */
+
 const http = require('http');
 
 const PORT = 3000;
 const server = http.createServer((req, res) => {
 
     if(req.url === '/') {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(
-            JSON.stringify({
-                data: "hello world!"
-            })
-        );
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("pages/home.html");
+        res.end();
     } else if(req.url === '/about') {
-        res.writeHead(200, { "Content-Type": "application/json" });
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("<h1>welcome to about page</h1>");
         res.end(
-            JSON.stringify({
-                data: "this is about page!"
-            })
+            
         );
     } else {
-        res.writeHead(404, { "Content-Type": "application/json" });
+        res.writeHead(404, { "Content-Type": "text/html" });
+        res.write("<h1>page not found</h1>");
         res.end(
-            JSON.stringify({
-                data: "page not found!"
-            })
+            
         );
     }
 
