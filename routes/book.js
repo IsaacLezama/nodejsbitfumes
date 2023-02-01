@@ -12,12 +12,12 @@ bookRouter.route('/')
 })
 .post(async (req, res) => {
     const db = await connect();
-    const data = {
-        title: 'Orgullo y Prejuicio',
-        author: 'Jane Austen'
-    }
-    await db.collection('book').insertOne(data);
-    res.json({data: 'hello world' });
+    // const data = {
+    //     title: 'Orgullo y Prejuicio',
+    //     author: 'Jane Austen'
+    // }
+    await db.collection('book').insertOne(req.body);
+    res.json({data: 'book inserted correctly' });
 })
 
 bookRouter.route('/:id')

@@ -43,10 +43,13 @@
 const express = require('express');
 const app = express();
 const routes = require('./routes/index')
+const bodyParser = require('body-parser');
+
 app.set('view engine', 'pug')
 
 const PORT = 3000;
 
+app.use(bodyParser.json());
 app.use(routes);
 
 app.listen(PORT, () => {
