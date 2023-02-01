@@ -6,7 +6,8 @@ const bookRouter = require('./book')
 
 router.get('/', (req, res) => {
     // res.send('hello world');
-    res.sendFile(path.join(__dirname, "/../pages/home.html"));
+    // res.sendFile(path.join(__dirname, "/../pages/home.html"));
+    res.render("index", {name: 'Isaac'})
 });
 
 // app.get('/book', (req, res) => {

@@ -43,6 +43,7 @@
 const express = require('express');
 const app = express();
 const routes = require('./routes/index')
+app.set('view engine', 'pug')
 
 const PORT = 3000;
 
