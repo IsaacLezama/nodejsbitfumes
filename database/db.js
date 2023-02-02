@@ -3,19 +3,27 @@ const { MongoClient } = require('mongodb');
 // import { MongoClient } from 'mongodb'
 
 // Connection URL
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
+// const url = 'mongodb://localhost:27017';
+// const client = new MongoClient(url);
 
-// Database Name
-const dbName = 'nodejs-bitfumes';
+// // Database Name
+// const dbName = 'nodejs-bitfumes';
 
-async function connect() {
-    // Use connect method to connect to the server
-    await client.connect();
-    console.log('Connected successfully to server');
-    const db = await client.db(dbName);
+// async function connect() {
+//     // Use connect method to connect to the server
+//     await client.connect();
+//     console.log('Connected successfully to server');
+//     const db = await client.db(dbName);
   
-    return db;
+//     return db;
+// }
+
+// module.exports = connect;
+
+const mongoose = require('mongoose');
+
+async function connectDB() {
+    await mongoose.connect('mongodb://localhost:27017/nodejs-bitfumes');
 }
 
-module.exports = connect;
+module.exports = connectDB;

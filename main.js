@@ -45,6 +45,8 @@ const app = express();
 const routes = require('./routes/index')
 const bodyParser = require('body-parser');
 
+const connectDB = require('./database/db')
+
 app.set('view engine', 'pug')
 
 const PORT = 3000;
@@ -52,6 +54,9 @@ const PORT = 3000;
 app.use(bodyParser.json());
 app.use(routes);
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    })
 })
+    
