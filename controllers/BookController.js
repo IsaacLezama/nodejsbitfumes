@@ -21,8 +21,12 @@ exports.store = async (req, res) => {
     //     author: 'Jane Austen'
     // }
     // await db.collection('book').insertOne(req.body);
-    
-    res.status(201).json({data: 'book inserted correctly' });
+    try {
+        await Book.create(req.body);
+        res.status(201).json({data: 'book inserted correctly' });
+    } catch(error) {
+        res.json(error.errors);
+    }
 }
 //mostrar un libro en especifico
 exports.show = async (req, res) => {
