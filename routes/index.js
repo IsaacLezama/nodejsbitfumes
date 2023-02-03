@@ -5,6 +5,7 @@ const path = require('path');
 const bookRouter = require('./book')
 const authRouter = require('./auth')
 
+
 router.get('/', (req, res) => {
     // res.send('hello world');
     // res.sendFile(path.join(__dirname, "/../pages/home.html"));
