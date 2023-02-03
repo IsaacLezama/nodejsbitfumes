@@ -5,8 +5,10 @@ const bookRouter = express.Router();
 // const { ObjectId } = require('mongodb');
 
 const BookController = require('./../controllers/BookController')
+const auth = require('../middleware/auth')
 //ingresar y ver libros
 bookRouter
+    .use(auth)
     .route('/')
     .get(BookController.index)
     .post(BookController.store)
